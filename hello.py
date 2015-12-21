@@ -1,17 +1,17 @@
-from flask import Flask
-from flask import request
-
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # Route registered to app's index
 @app.route('/')
 def index():
-    return('<h1>Hello! :></h1>')
+    #return('<h1>Hello! :></h1>')
+    return(render_template('index.html'))
 
 # Dynamic route
 @app.route('/user/<name>')
 def user(name):
-    return('<h1>Hello, %s!</h1>' % name)
+    #return('<h1>Hello, %s!</h1>' % name)
+    return(render_template('user.html', name=name))
 
 # Dynamic route with an int component
 @app.route('/uid/<int:id>')
